@@ -1,734 +1,355 @@
-\# SplitPay — Smart Group Payment Settlement
+# 💸 SplitPay — Smart Group Payment Settlement
 
+> **Split expenses. Minimize transactions. Pay instantly.**
 
+SplitPay is a smart group expense management application that helps friends, students, roommates, and travel groups track shared expenses and settle their debts with the **minimum possible number of transactions**.
 
-> Split expenses. Minimize transactions. Settle smarter.
+---
 
+## 🚀 Features
 
+### 👥 Group Management
 
-SplitPay is a full-stack web application for managing shared group expenses.
+* Create expense-sharing groups
+* Add multiple members
+* View all groups
+* View individual group details
 
+### 💰 Expense Management
 
+* Add expenses to a group
+* Record who paid
+* Track how much each member owes
+* Automatically calculate member balances
 
-It allows users to create groups, add members, record expenses, calculate each member's balance, and generate an optimized settlement plan with fewer transactions.
+### 🧮 Smart Settlement
 
+SplitPay calculates:
 
+* Total amount spent
+* Individual balances
+* Who needs to pay
+* Who needs to receive
+* Optimized settlement transactions
 
-\## Features
+The settlement algorithm matches **debtors with creditors** to reduce unnecessary transactions.
 
+### 💳 Payment Integration
 
+Razorpay integration is planned to allow users to settle their balances through online payments.
 
-\- Create and manage groups
+---
 
-\- Add members to groups
+## 🛠️ Tech Stack
 
-\- Add shared expenses
+### Frontend
 
-\- Automatically split expenses equally
+* React.js
+* Vite
+* JavaScript
+* HTML
+* CSS
 
-\- View group expenses and total spending
+### Backend
 
-\- Calculate member balances
+* Node.js
+* Express.js
+* REST APIs
 
-\- Identify who needs to pay and who should receive
+### Database
 
-\- Generate an optimized settlement plan
+* MongoDB
+* MongoDB Atlas
+* Mongoose
 
-\- Record completed settlement payments
+### Payment
 
-\- Store groups, expenses, and payments in MongoDB
+* Razorpay
 
-\- Delete groups along with their related data
+### Development Tools
 
-\- Show payment status after completion
+* Visual Studio Code
+* Postman
+* Git
+* GitHub
 
-\- Show when all group settlements are completed
+---
 
+## 🏗️ Project Structure
 
-
-\## How It Works
-
-
-
-SplitPay follows this flow:
-
-
-
-Create Group
-
-→ Add Members
-
-→ Add Expenses
-
-→ Calculate Balances
-
-→ Find Debtors and Creditors
-
-→ Minimize Transactions
-
-→ Confirm Payment
-
-→ Save Payment
-
-→ All Settled
-
-
-
-\## Smart Settlement Algorithm
-
-
-
-The main feature of SplitPay is its Smart Settlement Algorithm.
-
-
-
-For each expense:
-
-
-
-1\. The person who paid the expense gets credit for the amount paid.
-
-2\. Each member is charged for their share.
-
-3\. A net balance is calculated for every member.
-
-4\. Members with negative balances need to pay.
-
-5\. Members with positive balances should receive money.
-
-6\. Debtors are matched with creditors.
-
-7\. The system generates a simplified settlement plan.
-
-
-
-\### Example
-
-
-
-Suppose:
-
-
-
-Arjun paid ₹3000
-
-
-
-Raju owes ₹1500
-
-
-
-Madhuri owes ₹1500
-
-
-
-SplitPay generates:
-
-
-
-Raju → Arjun ₹1500
-
-
-
-Madhuri → Arjun ₹1500
-
-
-
-Only 2 transactions are required.
-
-
-
-\## Technologies Used
-
-
-
-\### Frontend
-
-
-
-\- React
-
-\- Vite
-
-\- React Router
-
-\- Tailwind CSS
-
-\- JavaScript
-
-
-
-\### Backend
-
-
-
-\- Node.js
-
-\- Express.js
-
-\- REST APIs
-
-\- JavaScript
-
-
-
-\### Database
-
-
-
-\- MongoDB Atlas
-
-\- Mongoose
-
-
-
-\### Tools
-
-
-
-\- VS Code
-
-\- Postman
-
-\- Git
-
-\- GitHub
-
-
-
-\## Project Structure
-
-
-
+```text
 SplitPay/
-
 │
-
-├── client/
-
-│   ├── src/
-
-│   │   ├── components/
-
-│   │   │   └── Navbar.jsx
-
-│   │   ├── pages/
-
-│   │   │   ├── Home.jsx
-
-│   │   │   ├── CreateGroup.jsx
-
-│   │   │   ├── Groups.jsx
-
-│   │   │   ├── GroupDetails.jsx
-
-│   │   │   ├── AddExpense.jsx
-
-│   │   │   └── Settlement.jsx
-
-│   │   ├── App.jsx
-
-│   │   └── main.jsx
-
-│   └── package.json
-
-│
-
 ├── server/
-
 │   ├── models/
-
+│   │   ├── Expense.js
 │   │   ├── Group.js
-
-│   │   ├── ExpenseTemp.js
-
-│   │   └── Payment.js
-
+│   │   └── ...
+│   │
 │   ├── routes/
-
-│   │   ├── groupRoutes.js
-
 │   │   ├── expenseRoutes.js
-
-│   │   └── PaymentRoutes.js
-
+│   │   ├── groupRoutes.js
+│   │   └── ...
+│   │
+│   ├── .env
 │   ├── server.js
-
 │   └── package.json
-
 │
-
-├── .gitignore
-
+├── src/
+│   ├── components/
+│   │   └── Navbar.jsx
+│   │
+│   ├── pages/
+│   │   ├── Home.jsx
+│   │   ├── CreateGroup.jsx
+│   │   ├── Groups.jsx
+│   │   ├── GroupDetails.jsx
+│   │   ├── AddExpense.jsx
+│   │   └── Settlement.jsx
+│   │
+│   ├── App.jsx
+│   └── main.jsx
+│
+├── public/
+├── package.json
 └── README.md
+```
 
+---
 
+## 🔄 How SplitPay Works
 
-\## Application Pages
+```text
+Create Group
+     ↓
+Add Members
+     ↓
+Add Expenses
+     ↓
+Calculate Individual Balances
+     ↓
+Identify Debtors & Creditors
+     ↓
+Optimize Settlement
+     ↓
+Make Payments
+```
 
+---
 
+## 🧠 Smart Settlement Algorithm
 
-\### Home
+Suppose three members have the following balances:
 
+```text
+Arjun    +₹3028.67
+Raju     -₹1514.33
+Madhuri  -₹1514.33
+```
 
+Here:
 
-Introduction to SplitPay with options to create or view groups.
+* Arjun needs to receive ₹3028.67
+* Raju needs to pay ₹1514.33
+* Madhuri needs to pay ₹1514.33
 
+SplitPay automatically identifies these relationships and generates the required settlement transactions.
 
+Instead of manually calculating who owes whom, the application performs the calculation automatically.
 
-\### Create Group
+---
 
+## 🌐 API Overview
 
+### Group APIs
 
-Create a new group and add initial members.
+```text
+POST   /api/groups
+GET    /api/groups
+GET    /api/groups/:id
+POST   /api/groups/:id/members
+```
 
+### Expense APIs
 
+```text
+POST   /api/expenses
+GET    /api/expenses/:groupId
+```
 
-\### Groups
+### Settlement
 
+```text
+GET    /api/settlement/:groupId
+```
 
+> API endpoints may evolve as the project continues to be developed.
 
-View all created groups along with member and expense information.
+---
 
+## 💻 Installation
 
+### 1. Clone the repository
 
-\### Group Details
-
-
-
-Manage members, view expenses, see total spending, and access settlement details.
-
-
-
-\### Add Expense
-
-
-
-Add an expense, select who paid, and automatically calculate each member's share.
-
-
-
-\### Smart Settlement
-
-
-
-View:
-
-
-
-\- Total expenses
-
-\- Number of members
-
-\- Average share
-
-\- Member balances
-
-\- Required transactions
-
-\- Settlement plan
-
-\- Payment status
-
-
-
-\## Payment Flow
-
-
-
-SplitPay currently uses a simulated payment flow for project demonstration.
-
-
-
-The flow is:
-
-
-
-Pay
-
-→ Confirm Payment
-
-→ Payment Successful
-
-→ Payment Saved in MongoDB
-
-→ Paid ✓
-
-
-
-The payment status remains available after refreshing the page.
-
-
-
-No real money is transferred in the current implementation.
-
-
-
-\## REST API
-
-
-
-\### Groups
-
-
-
-GET /api/groups
-
-
-
-GET /api/groups/:id
-
-
-
-POST /api/groups
-
-
-
-POST /api/groups/:id/members
-
-
-
-DELETE /api/groups/:id
-
-
-
-\### Expenses
-
-
-
-POST /api/expenses
-
-
-
-GET /api/expenses/group/:groupId
-
-
-
-GET /api/expenses/settlement/:groupId
-
-
-
-\### Payments
-
-
-
-POST /api/payments
-
-
-
-GET /api/payments/group/:groupId
-
-
-
-\## Database Models
-
-
-
-\### Group
-
-
-
-Stores:
-
-
-
-\- Group name
-
-\- Members
-
-\- Created date
-
-\- Updated date
-
-
-
-\### Expense
-
-
-
-Stores:
-
-
-
-\- Group ID
-
-\- Description
-
-\- Amount
-
-\- Paid by
-
-\- Member shares
-
-\- Created date
-
-
-
-\### Payment
-
-
-
-Stores:
-
-
-
-\- Group ID
-
-\- Payer
-
-\- Receiver
-
-\- Amount
-
-\- Payment status
-
-\- Payment date
-
-\- Created date
-
-\- Updated date
-
-
-
-\## Installation and Setup
-
-
-
-\### 1. Clone the repository
-
-
-
+```bash
 git clone https://github.com/Madhuri1313/SplitPay.git
+```
 
+### 2. Open the project
 
-
+```bash
 cd SplitPay
+```
 
+### 3. Install frontend dependencies
 
-
-\### 2. Install frontend dependencies
-
-
-
-cd client
-
-
-
+```bash
 npm install
+```
 
+### 4. Install backend dependencies
 
-
-\### 3. Start the frontend
-
-
-
-npm run dev
-
-
-
-Frontend:
-
-
-
-http://localhost:5173
-
-
-
-\### 4. Install backend dependencies
-
-
-
-Open another terminal:
-
-
-
+```bash
 cd server
-
-
-
 npm install
+```
 
+---
 
-
-\### 5. Configure environment variables
-
-
+## 🔐 Environment Variables
 
 Create a `.env` file inside the `server` folder.
 
+```env
+MONGODB_URI=your_mongodb_connection_string
+PORT=5000
+```
 
+Never upload your actual MongoDB credentials, passwords, API keys, or payment secrets to GitHub.
 
-Add:
+---
 
+## ▶️ Running the Application
 
+### Start Backend
 
-MONGODB\_URI=your\_mongodb\_connection\_string
+From the `server` directory:
 
-
-
-Do not upload `.env` to GitHub.
-
-
-
-\### 6. Start the backend
-
-
-
+```bash
 node server.js
+```
 
+The backend runs on:
 
-
-Backend:
-
-
-
+```text
 http://localhost:5000
+```
 
+### Start Frontend
 
+Open another terminal:
 
-\## Security
+```bash
+cd C:\SplitPay
+npm run dev
+```
 
+Then open the local Vite URL shown in the terminal.
 
+---
 
-Sensitive information such as database connection strings and secret keys should be stored in environment variables.
+## 🧪 API Testing
 
+Postman can be used to test the backend APIs.
 
+The main testing flow is:
 
-The `.gitignore` file prevents `.env` from being committed to GitHub.
+```text
+Create Group
+     ↓
+Add Members
+     ↓
+Add Expense
+     ↓
+Calculate Balances
+     ↓
+Generate Settlement
+```
 
+---
 
+## 📱 Application Pages
 
-Never expose secret keys in source code or public repositories.
+SplitPay currently includes:
 
+* 🏠 Home
+* ➕ Create Group
+* 👥 Groups
+* 📋 Group Details
+* 💵 Add Expense
+* 🤝 Settlement
 
+---
 
-\## What This Project Demonstrates
+## 🎯 Use Cases
 
+SplitPay can be useful for:
 
+* 🏖️ Group trips
+* 🏠 Roommates
+* 🎓 College students
+* 🍕 Friends sharing food bills
+* 🎉 Events and parties
+* 👨‍👩‍👧 Group activities
+* 💼 Small team expenses
 
-SplitPay demonstrates practical experience with:
+---
 
+## 🔮 Future Enhancements
 
+* [ ] Razorpay payment integration
+* [ ] User authentication
+* [ ] Individual user accounts
+* [ ] Expense history
+* [ ] Payment status tracking
+* [ ] Transaction notifications
+* [ ] Expense categories
+* [ ] Dashboard with charts
+* [ ] Mobile-responsive improvements
+* [ ] Deployment
+* [ ] Payment receipts
+* [ ] Real-time settlement updates
 
-\- Full-stack web development
+---
 
-\- React development
+## 🏆 Project Goal
 
-\- REST API development
+The goal of SplitPay is to make group expense settlement:
 
-\- Express.js
+**Simple → Smart → Fast → Transparent**
 
-\- MongoDB and Mongoose
+Instead of spending time manually calculating expenses, users can let SplitPay calculate and optimize the settlement automatically.
 
-\- CRUD operations
+---
 
-\- React state management
+## 👩‍💻 Developer
 
-\- Client-side routing
-
-\- Asynchronous API requests
-
-\- Algorithmic problem solving
-
-\- Payment state management
-
-\- Git and GitHub
-
-
-
-\## Learning Outcomes
-
-
-
-Through this project, I gained hands-on experience in:
-
-
-
-\- Connecting React with an Express backend
-
-\- Designing REST APIs
-
-\- Working with MongoDB
-
-\- Managing application state
-
-\- Handling asynchronous operations
-
-\- Building a settlement algorithm
-
-\- Persisting application data
-
-\- Tracking payment status
-
-\- Debugging full-stack applications
-
-\- Using Git and GitHub
-
-
-
-\## Future Improvements
-
-
-
-\- User authentication
-
-\- User profiles
-
-\- Group invitations
-
-\- Custom expense splitting
-
-\- Expense editing and deletion
-
-\- Payment history
-
-\- Payment reminders
-
-\- Notifications
-
-\- Real payment gateway test integration
-
-\- Cloud deployment
-
-\- Mobile application
-
-
-
-\## Project Repository
-
-
+**Madhuri Shankar**
 
 GitHub:
-
-
-
-https://github.com/Madhuri1313/SplitPay
-
-
-
-\## Author
-
-
-
-Madhuri Shankar
-
-
-
-GitHub:
-
-
-
 https://github.com/Madhuri1313
 
+Project Repository:
+https://github.com/Madhuri1313/SplitPay
 
+---
 
-\## Project Highlight
+## 📄 License
 
+This project is developed as an educational and buildathon project.
 
+---
 
-SplitPay transforms complex group expense calculations into a simple and optimized settlement plan with fewer transactions.
+# ⭐ SplitPay
 
-
-
-> Split expenses. Minimize transactions. Settle smarter.
-
+> **Split expenses. Minimize transactions. Pay instantly.**
