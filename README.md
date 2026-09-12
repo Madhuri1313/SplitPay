@@ -344,12 +344,6 @@ https://github.com/Madhuri1313/SplitPay
 
 ---
 
-## 📄 License
-
-This project is developed as an educational and buildathon project.
-
----
-
 # ⭐ SplitPay
 
 > **Split expenses. Minimize transactions. Pay instantly.**
